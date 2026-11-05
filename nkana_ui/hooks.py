@@ -1,7 +1,7 @@
 app_name = "nkana_ui"
-app_title = "Nkana Water and Sanitation UI"
+app_title = "HEA UI"
 app_publisher = "Frank Lembalemba"
-app_description = "Nkana Water and Sanitation UI customizations ((forked from UI Customizations))"
+app_description = "Higher Education Authority (HEA) Zambia UI customizations (forked from UI Customizations)"
 app_email = "frank@innovativedynamicsltd.com"
 app_license = "mit"
 
@@ -15,7 +15,7 @@ app_license = "mit"
 # 	{
 # 		"name": "nkana_ui",
 # 		"logo": "/assets/nkana_ui/logo.png",
-# 		"title": "Nkana Water and Sanitation UI",
+# 		"title": "HEA UI",
 # 		"route": "/nkana_ui",
 # 		"has_permission": "nkana_ui.api.permission.has_app_permission"
 # 	}
@@ -264,7 +264,7 @@ website_route_rules = [
 
 
 # Fixtures: Frappe customisations shipped with this app (installed with the app; refreshed by migrate).
-# Workflow State → Style: extra colour choices (Yellow, Purple, …, Nkana colours). See GUIDE.md §13.
+# Workflow State → Style: extra colour choices (Yellow, Purple, …, HEA colours). See GUIDE.md §13.
 fixtures = [
 	{
 		"dt": "Property Setter",

@@ -88,11 +88,11 @@ class UIRail {
 		this.$rail = $(`
 			<aside class="ui-rail" aria-label="${__("Main menu")}">
 				<a class="ui-rail__brand" href="/app" title="${__("Home")}">
-					<img src="/assets/nkana_ui/images/nkana_logo.png"
-						alt="${__("Nkana Water Supply and Sanitation Company")}" width="44" height="39">
+					<img src="/assets/nkana_ui/images/hea_mark.png"
+						alt="${__("Higher Education Authority")}" width="44" height="44">
 					<span class="ui-rail__brand-text">
-						<span class="ui-rail__brand-name">${__("Nkana ERP")}</span>
-						<span class="ui-rail__brand-sub">${__("Water & Sanitation")}</span>
+						<span class="ui-rail__brand-name">${__("HEA ERP")}</span>
+						<span class="ui-rail__brand-sub">${__("Higher Education Authority")}</span>
 					</span>
 				</a>
 				<nav class="ui-rail__nav"></nav>

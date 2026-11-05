@@ -1,60 +1,60 @@
-/* workflow_colours.css - Nkana colours for workflow state pills (chosen in Workflow State → Style).
+/* workflow_colours.css - HEA colours for workflow state pills (chosen in Workflow State → Style).
    Defined the same way as Frappe's own pill colours (--bg-<colour> / --text-on-<colour>), so they
    work for pills (lists, form header) and dots. Mapping from Style to colour:
    public/js/ui_workflow_colours.js. */
 
 :root {
-  --bg-nk-blue: var(--nk-sky-40);
-  --text-on-nk-blue: var(--nk-sky-deeper);
-  --bg-nk-aqua: var(--nk-aqua-20);
-  --text-on-nk-aqua: var(--nk-aqua-deeper);
-  --bg-nk-yellow: var(--nk-sun-20);
-  --text-on-nk-yellow: #5C5200;
-  --bg-nk-navy: var(--nk-navy);
-  --text-on-nk-navy: #FFFFFF;
+  --bg-hea-blue: var(--hea-sky-40);
+  --text-on-hea-blue: var(--hea-primary-dark);
+  --bg-hea-lightblue: var(--hea-accent-20);
+  --text-on-hea-lightblue: var(--hea-accent-deeper);
+  --bg-hea-gold: var(--hea-gold-20);
+  --text-on-hea-gold: #6B4A00;
+  --bg-hea-navy: var(--hea-navy);
+  --text-on-hea-navy: #FFFFFF;
 }
 
 html[data-theme="dark"] {
-  --bg-nk-blue: rgba(168, 215, 176, 0.18);
-  --text-on-nk-blue: var(--nk-sky);
-  --bg-nk-aqua: rgba(207, 130, 74, 0.2);
-  --text-on-nk-aqua: var(--nk-aqua-60);
-  --bg-nk-yellow: rgba(237, 219, 0, 0.16);
-  --text-on-nk-yellow: var(--nk-sun-60);
-  --bg-nk-navy: #4F4C4D;
-  --text-on-nk-navy: #FFFFFF;
+  --bg-hea-blue: rgba(93, 173, 226, 0.18);
+  --text-on-hea-blue: var(--hea-sky);
+  --bg-hea-lightblue: rgba(46, 134, 193, 0.2);
+  --text-on-hea-lightblue: var(--hea-accent-60);
+  --bg-hea-gold: rgba(240, 165, 0, 0.16);
+  --text-on-hea-gold: var(--hea-gold-60);
+  --bg-hea-navy: #4F4C4D;
+  --text-on-hea-navy: #FFFFFF;
 }
 
-.indicator-pill.nk-blue,
-.indicator-pill.nk-aqua,
-.indicator-pill.nk-yellow,
-.indicator-pill.nk-navy,
-.indicator-pill-right.nk-blue,
-.indicator-pill-right.nk-aqua,
-.indicator-pill-right.nk-yellow,
-.indicator-pill-right.nk-navy {
+.indicator-pill.hea-blue,
+.indicator-pill.hea-lightblue,
+.indicator-pill.hea-gold,
+.indicator-pill.hea-navy,
+.indicator-pill-right.hea-blue,
+.indicator-pill-right.hea-lightblue,
+.indicator-pill-right.hea-gold,
+.indicator-pill-right.hea-navy {
   background: var(--bg-c);
   color: var(--text-c);
 }
 
-.indicator-pill.nk-blue,
-.indicator-pill-right.nk-blue { --bg-c: var(--bg-nk-blue); --text-c: var(--text-on-nk-blue); }
-.indicator-pill.nk-aqua,
-.indicator-pill-right.nk-aqua { --bg-c: var(--bg-nk-aqua); --text-c: var(--text-on-nk-aqua); }
-.indicator-pill.nk-yellow,
-.indicator-pill-right.nk-yellow { --bg-c: var(--bg-nk-yellow); --text-c: var(--text-on-nk-yellow); }
-.indicator-pill.nk-navy,
-.indicator-pill-right.nk-navy { --bg-c: var(--bg-nk-navy); --text-c: var(--text-on-nk-navy); }
+.indicator-pill.hea-blue,
+.indicator-pill-right.hea-blue { --bg-c: var(--bg-hea-blue); --text-c: var(--text-on-hea-blue); }
+.indicator-pill.hea-lightblue,
+.indicator-pill-right.hea-lightblue { --bg-c: var(--bg-hea-lightblue); --text-c: var(--text-on-hea-lightblue); }
+.indicator-pill.hea-gold,
+.indicator-pill-right.hea-gold { --bg-c: var(--bg-hea-gold); --text-c: var(--text-on-hea-gold); }
+.indicator-pill.hea-navy,
+.indicator-pill-right.hea-navy { --bg-c: var(--bg-hea-navy); --text-c: var(--text-on-hea-navy); }
 
 /* Pills that show a dot (e.g. the form header pill) and plain dot indicators */
-.indicator-pill.nk-blue::before,
-.indicator-pill.nk-aqua::before,
-.indicator-pill.nk-yellow::before,
-.indicator-pill.nk-navy::before {
+.indicator-pill.hea-blue::before,
+.indicator-pill.hea-lightblue::before,
+.indicator-pill.hea-gold::before,
+.indicator-pill.hea-navy::before {
   background: var(--text-c);
 }
 
-.indicator.nk-blue::before { background: var(--text-on-nk-blue); }
-.indicator.nk-aqua::before { background: var(--text-on-nk-aqua); }
-.indicator.nk-yellow::before { background: var(--text-on-nk-yellow); }
-.indicator.nk-navy::before { background: var(--bg-nk-navy); }
+.indicator.hea-blue::before { background: var(--text-on-hea-blue); }
+.indicator.hea-lightblue::before { background: var(--text-on-hea-lightblue); }
+.indicator.hea-gold::before { background: var(--text-on-hea-gold); }
+.indicator.hea-navy::before { background: var(--bg-hea-navy); }

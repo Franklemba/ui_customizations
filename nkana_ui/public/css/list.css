@@ -1,7 +1,7 @@
 /* list.css - Lists, report views (Report Builder) and query reports.
    - Lists: light-blue header row with bold labels; wider status column (list look otherwise Frappe's)
    - Paging buttons: selected size in soft blue
-   - Report tables (Frappe DataTable) use the Nkana roles through DataTable's own --dt-* variables */
+   - Report tables (Frappe DataTable) use the HEA roles through DataTable's own --dt-* variables */
 
 /* ── List header row (Employee Name, Status, … between the filters and the records) ──
    Frappe draws it as a white strip with light grey text (it carries .text-muted), which barely

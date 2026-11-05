@@ -3,7 +3,7 @@ name = "nkana_ui"
 authors = [
     { name = "Frank Lembalemba", email = "frank@innovativedynamicsltd.com"}
 ]
-description = "Nkana Water Supply and Sanitation look and feel for the Frappe desk and login page"
+description = "Higher Education Authority (HEA) Zambia look and feel for the Frappe desk and login page"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

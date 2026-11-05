@@ -1,4 +1,4 @@
-/* navbar.css - Top bar: Nkana sky blue, dark text; search; notifications and other dropdowns */
+/* navbar.css - Top bar: HEA light blue, dark text; search; notifications and other dropdowns */
 
 .navbar {
   background-color: var(--ui-navbar-bg) !important;
@@ -28,7 +28,7 @@
   color: var(--ui-navbar-ink) !important;
 }
 
-/* Current page in the breadcrumb: aqua highlight */
+/* Current page in the breadcrumb: accent-blue highlight */
 .navbar #navbar-breadcrumbs li:last-child a {
   color: var(--ui-navbar-highlight) !important;
   font-weight: 700;
@@ -184,7 +184,7 @@
   margin-top: 12px;
 }
 
-/* Unread marker in Nkana sky blue (Frappe draws it black) */
+/* Unread marker in HEA light blue (Frappe draws it black) */
 .notifications-list .recent-item.notification-item.unread .notification-body::before {
   background: var(--ui-primary) !important;
 }

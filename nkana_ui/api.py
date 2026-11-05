@@ -20,9 +20,9 @@ def workflow_state_styles():
 	)
 
 
-# Colour themes a user can pick (public/css/themes.css, public/js/ui_themes.js). "nkana" is the default.
-UI_THEMES = ("nkana", "copper", "charcoal", "forest", "ocean", "slate")
-DEFAULT_UI_THEME = "nkana"
+# Colour themes a user can pick (public/css/themes.css, public/js/ui_themes.js). "hea" is the default.
+UI_THEMES = ("hea", "copper", "charcoal", "forest", "ocean", "slate")
+DEFAULT_UI_THEME = "hea"
 
 # Switched off 2026-10-02 (user's choice): everyone gets the default and the "Colour Theme" menu item
 # is hidden. Saved choices are kept. Set to True (and reload the web workers) to bring the picker back.

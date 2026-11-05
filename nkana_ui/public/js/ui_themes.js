@@ -6,13 +6,13 @@
 // is put on <html data-ui-theme="…">. The colours themselves are in public/css/themes.css.
 // Light/Dark mode stays Frappe's own setting and works with every colour theme.
 
-const DEFAULT_THEME = "nkana";
+const DEFAULT_THEME = "hea";
 
 // Order shown in the picker. Names must match themes.css and UI_THEMES in api.py.
 const THEMES = [
-	{ name: "nkana", label: __("Nkana Blue"), description: __("The standard Nkana look: light-blue top bar, navy menu.") },
-	{ name: "copper", label: __("Nkana Aqua"), description: __("Aqua top bar and buttons, navy menu.") },
-	{ name: "charcoal", label: __("Nkana Navy"), description: __("Dark top bar with blue accents.") },
+	{ name: "hea", label: __("HEA Blue"), description: __("The standard HEA look: light-blue top bar, navy menu.") },
+	{ name: "copper", label: __("HEA Light Blue"), description: __("Blue top bar and buttons, navy menu.") },
+	{ name: "charcoal", label: __("HEA Navy"), description: __("Dark top bar with blue accents.") },
 	{ name: "forest", label: __("Deep Forest"), description: __("Dark-green top bar, white text.") },
 	{ name: "ocean", label: __("Ocean Blue"), description: __("Light-blue top bar, navy menu, blue buttons.") },
 	{ name: "slate", label: __("Minimal Slate"), description: __("Quiet white top bar with grey-blue accents.") },

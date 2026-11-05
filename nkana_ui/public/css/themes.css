@@ -2,7 +2,7 @@
  *
  * public/js/ui_themes.js puts the user's choice on <html data-ui-theme="…">. Each theme below
  * re-maps the ROLE tokens from variables.css; nothing else in the app needs to know about themes.
- * "nkana" (Nkana Blue) is the default and is simply the values in variables.css.
+ * "hea" (HEA Blue) is the default and is simply the values in variables.css.
  *
  * Every theme has up to three selectors:
  *   html[data-ui-theme="x"]:not([data-theme="dark"])   the theme in Light mode
@@ -17,105 +17,105 @@
  * api.py (the server only saves names it knows). See GUIDE.md §14.
  */
 
-/* ── Nkana Blue (default): only the swatch, the page already uses variables.css ── */
-.ui-theme-swatch[data-ui-theme="nkana"] {
-  --ui-primary: var(--nk-sky-deep);
-  --ui-navbar-bg: var(--nk-sky);
-  --ui-navbar-ink: var(--nk-navy);
-  --ui-sidebar-bg: var(--nk-navy);
-  --ui-sidebar-active-bg: var(--nk-sky);
-  --ui-badge-bg: var(--nk-sun);
-  --ui-tint: var(--nk-sky-20);
-  --ui-tint-strong: var(--nk-sky-40);
-  --ui-icon-bg: var(--nk-sky-40);
-  --ui-icon-ink: var(--nk-sky-deep);
+/* ── HEA Blue (default): only the swatch, the page already uses variables.css ── */
+.ui-theme-swatch[data-ui-theme="hea"] {
+  --ui-primary: var(--hea-primary);
+  --ui-navbar-bg: var(--hea-sky);
+  --ui-navbar-ink: var(--hea-navy);
+  --ui-sidebar-bg: var(--hea-navy);
+  --ui-sidebar-active-bg: var(--hea-sky);
+  --ui-badge-bg: var(--hea-gold);
+  --ui-tint: var(--hea-sky-20);
+  --ui-tint-strong: var(--hea-sky-40);
+  --ui-icon-bg: var(--hea-sky-40);
+  --ui-icon-ink: var(--hea-primary);
 }
 
-/* ── Nkana Aqua: aqua top bar, aqua buttons ────────────────────────────────  */
+/* ── HEA Light Blue: accent-blue top bar and buttons ─────────────────────── */
 html[data-ui-theme="copper"]:not([data-theme="dark"]),
 .ui-theme-swatch[data-ui-theme="copper"] {
-  --ui-primary: var(--nk-aqua-deep);
-  --ui-primary-hover: var(--nk-aqua-deeper);
-  --ui-navbar-bg: var(--nk-aqua);
-  --ui-navbar-ink: var(--nk-navy);
+  --ui-primary: var(--hea-accent-deep);
+  --ui-primary-hover: var(--hea-accent-deeper);
+  --ui-navbar-bg: var(--hea-accent);
+  --ui-navbar-ink: var(--hea-navy);
   --ui-navbar-ink-soft: rgba(35, 31, 32, 0.75);
-  --ui-sidebar-bg: var(--nk-navy);
-  --ui-sidebar-active-bg: var(--nk-aqua);
-  --ui-sidebar-active-ink: var(--nk-navy);
-  --ui-badge-bg: var(--nk-sun);
-  --ui-title-accent: var(--nk-aqua);
-  --ui-highlight: var(--nk-sky-deep);
-  --ui-tint: var(--nk-aqua-20);
-  --ui-tint-strong: var(--nk-aqua-40);
-  --ui-icon-bg: var(--nk-aqua-40);
-  --ui-icon-ink: var(--nk-aqua-deep);
-  --ui-avatar-ink: var(--nk-aqua-deep);
-  --ui-card-hover-border: var(--nk-aqua);
+  --ui-sidebar-bg: var(--hea-navy);
+  --ui-sidebar-active-bg: var(--hea-accent);
+  --ui-sidebar-active-ink: var(--hea-navy);
+  --ui-badge-bg: var(--hea-gold);
+  --ui-title-accent: var(--hea-accent);
+  --ui-highlight: var(--hea-primary);
+  --ui-tint: var(--hea-accent-20);
+  --ui-tint-strong: var(--hea-accent-40);
+  --ui-icon-bg: var(--hea-accent-40);
+  --ui-icon-ink: var(--hea-accent-deep);
+  --ui-avatar-ink: var(--hea-accent-deep);
+  --ui-card-hover-border: var(--hea-accent);
 }
 
 html[data-ui-theme="copper"][data-theme="dark"] {
-  --ui-primary: var(--nk-aqua-deep);
-  --ui-primary-hover: #B86A33;
-  --ui-sidebar-active-bg: var(--nk-aqua);
-  --ui-sidebar-active-ink: var(--nk-navy);
-  --ui-title-accent: var(--nk-aqua);
-  --ui-highlight: var(--nk-sky);
-  --ui-tint: rgba(207, 130, 74, 0.08);
-  --ui-tint-strong: rgba(207, 130, 74, 0.16);
-  --ui-icon-bg: rgba(207, 130, 74, 0.18);
-  --ui-icon-ink: var(--nk-aqua);
-  --ui-card-hover-border: var(--nk-aqua);
+  --ui-primary: var(--hea-accent-deep);
+  --ui-primary-hover: #3A93CE;
+  --ui-sidebar-active-bg: var(--hea-accent);
+  --ui-sidebar-active-ink: var(--hea-navy);
+  --ui-title-accent: var(--hea-accent);
+  --ui-highlight: var(--hea-sky);
+  --ui-tint: rgba(46, 134, 193, 0.08);
+  --ui-tint-strong: rgba(46, 134, 193, 0.16);
+  --ui-icon-bg: rgba(46, 134, 193, 0.18);
+  --ui-icon-ink: var(--hea-accent);
+  --ui-card-hover-border: var(--hea-accent);
 }
 
-/* ── Nkana Navy: dark top bar, blue accents ────────────────────────────────  */
+/* ── HEA Navy: dark top bar, blue accents ─────────────────────────────────── */
 html[data-ui-theme="charcoal"]:not([data-theme="dark"]),
 .ui-theme-swatch[data-ui-theme="charcoal"] {
-  --ui-primary: var(--nk-sky-deep);
-  --ui-primary-hover: var(--nk-sky-deeper);
-  --ui-navbar-bg: var(--nk-navy);
+  --ui-primary: var(--hea-primary);
+  --ui-primary-hover: var(--hea-primary-dark);
+  --ui-navbar-bg: var(--hea-navy);
   --ui-navbar-ink: #FFFFFF;
   --ui-navbar-ink-soft: rgba(255, 255, 255, 0.75);
   --ui-navbar-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
   --ui-sidebar-bg: #161314;
-  --ui-sidebar-active-bg: var(--nk-sky);
-  --ui-sidebar-active-ink: var(--nk-navy);
-  --ui-badge-bg: var(--nk-sun);
-  --ui-title-accent: var(--nk-sky);
-  --ui-highlight: var(--nk-aqua-deep);
-  --ui-tint: var(--nk-sky-20);
-  --ui-tint-strong: var(--nk-sky-40);
-  --ui-icon-bg: var(--nk-sky-40);
-  --ui-icon-ink: var(--nk-sky-deep);
-  --ui-avatar-ink: var(--nk-navy);
-  --ui-card-hover-border: var(--nk-sky);
-  --ui-navbar-highlight: var(--nk-aqua);
+  --ui-sidebar-active-bg: var(--hea-sky);
+  --ui-sidebar-active-ink: var(--hea-navy);
+  --ui-badge-bg: var(--hea-gold);
+  --ui-title-accent: var(--hea-sky);
+  --ui-highlight: var(--hea-accent-deep);
+  --ui-tint: var(--hea-sky-20);
+  --ui-tint-strong: var(--hea-sky-40);
+  --ui-icon-bg: var(--hea-sky-40);
+  --ui-icon-ink: var(--hea-primary);
+  --ui-avatar-ink: var(--hea-navy);
+  --ui-card-hover-border: var(--hea-sky);
+  --ui-navbar-highlight: var(--hea-accent);
   /* Filter bar is dark too: white fields, yellow focus ring */
-  --ui-filterbar-focus: var(--nk-sun);
+  --ui-filterbar-focus: var(--hea-gold);
 }
 
 /* ── Deep Forest: dark-green top bar ─────────────────────────────────────── */
 html[data-ui-theme="forest"]:not([data-theme="dark"]),
 .ui-theme-swatch[data-ui-theme="forest"] {
-  --ui-primary: var(--nk-sky-deep);
-  --ui-primary-hover: var(--nk-sky-deeper);
-  --ui-navbar-bg: var(--nk-sky-deep);
+  --ui-primary: var(--hea-primary);
+  --ui-primary-hover: var(--hea-primary-dark);
+  --ui-navbar-bg: var(--hea-primary);
   --ui-navbar-ink: #FFFFFF;
   --ui-navbar-ink-soft: rgba(255, 255, 255, 0.78);
   --ui-navbar-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   --ui-sidebar-bg: #10261A;
-  --ui-sidebar-active-bg: var(--nk-sky);
-  --ui-sidebar-active-ink: var(--nk-navy);
-  --ui-badge-bg: var(--nk-sun);
-  --ui-title-accent: var(--nk-sky-deep);
-  --ui-highlight: var(--nk-aqua-deep);
-  --ui-tint: var(--nk-sky-20);
-  --ui-tint-strong: var(--nk-sky-40);
-  --ui-icon-bg: var(--nk-sky-40);
-  --ui-icon-ink: var(--nk-sky-deep);
-  --ui-avatar-ink: var(--nk-sky-deep);
-  --ui-card-hover-border: var(--nk-sky-deep);
-  --ui-navbar-highlight: var(--nk-sun);
-  --ui-filterbar-focus: var(--nk-sun);
+  --ui-sidebar-active-bg: var(--hea-sky);
+  --ui-sidebar-active-ink: var(--hea-navy);
+  --ui-badge-bg: var(--hea-gold);
+  --ui-title-accent: var(--hea-primary);
+  --ui-highlight: var(--hea-accent-deep);
+  --ui-tint: var(--hea-sky-20);
+  --ui-tint-strong: var(--hea-sky-40);
+  --ui-icon-bg: var(--hea-sky-40);
+  --ui-icon-ink: var(--hea-primary);
+  --ui-avatar-ink: var(--hea-primary);
+  --ui-card-hover-border: var(--hea-primary);
+  --ui-navbar-highlight: var(--hea-gold);
+  --ui-filterbar-focus: var(--hea-gold);
 }
 
 html[data-ui-theme="forest"][data-theme="dark"] {
@@ -137,7 +137,7 @@ html[data-ui-theme="ocean"]:not([data-theme="dark"]),
   --ui-badge-bg: #F5C542;
   --ui-badge-ink: #0F2338;
   --ui-title-accent: #5FA3E0;
-  --ui-highlight: var(--nk-aqua-deep);
+  --ui-highlight: var(--hea-accent-deep);
   --ui-tint: #EEF5FC;
   --ui-tint-strong: #DBEAF8;
   --ui-icon-bg: #DBEAF8;
@@ -173,9 +173,9 @@ html[data-ui-theme="slate"]:not([data-theme="dark"]),
   --ui-sidebar-bg: #2B3440;
   --ui-sidebar-active-bg: #DCE3EC;
   --ui-sidebar-active-ink: #1C1A1B;
-  --ui-badge-bg: var(--nk-sun);
+  --ui-badge-bg: var(--hea-gold);
   --ui-title-accent: #7D93AE;
-  --ui-highlight: var(--nk-aqua-deep);
+  --ui-highlight: var(--hea-accent-deep);
   --ui-tint: #F2F5F8;
   --ui-tint-strong: #E3E9F0;
   --ui-icon-bg: #E3E9F0;

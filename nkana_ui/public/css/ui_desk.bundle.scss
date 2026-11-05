@@ -2,8 +2,8 @@
    Frappe's build (bench build / bench watch) bundles this and the files below into ONE
    fingerprinted file, so browsers always fetch the latest version after a change.
    The imported files are plain CSS.
-   Colours: nkana_palette.css (brand) → variables.css (roles). Breakpoints: 992px, 576px. */
-@import "./nkana_palette";
+   Colours: hea_palette.css (brand) → variables.css (roles). Breakpoints: 992px, 576px. */
+@import "./hea_palette";
 @import "./variables";
 @import "./themes";
 @import "./base";

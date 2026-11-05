@@ -1,13 +1,13 @@
 // ui_workflow_colours.js – colours for workflow state pills.
 //
 // Pick a state's colour in Workflow State → Style. Besides Frappe's six (Primary, Info, Success,
-// Warning, Danger, Inverse) this app adds Yellow, Purple, Pink, Cyan, Dark Grey and the Nkana colours
+// Warning, Danger, Inverse) this app adds Yellow, Purple, Pink, Cyan, Dark Grey and the HEA colours
 // to that dropdown (fixture: fixtures/property_setter.json).
 //
 // Frappe keeps each doctype's workflow states (with their styles) in its cached metadata, so a
 // changed colour wouldn't show until caches are cleared. Instead, the current styles are fetched
 // once per page load (nkana_ui.api.workflow_state_styles) and used for every workflow
-// pill. Until they arrive, Frappe's cached style is used. Nkana colours: public/css/workflow_colours.css.
+// pill. Until they arrive, Frappe's cached style is used. HEA colours: public/css/workflow_colours.css.
 
 const STYLE_COLOURS = {
 	// Frappe's own
@@ -23,10 +23,15 @@ const STYLE_COLOURS = {
 	Pink: "pink",
 	Cyan: "cyan",
 	"Dark Grey": "darkgrey",
-	"Nkana Blue": "nk-blue",
-	"Nkana Aqua": "nk-aqua",
-	"Nkana Yellow": "nk-yellow",
-	"Nkana Navy": "nk-navy",
+	"HEA Blue": "hea-blue",
+	"HEA Light Blue": "hea-lightblue",
+	"HEA Gold": "hea-gold",
+	"HEA Navy": "hea-navy",
+	// older names (states styled before the HEA rebrand)
+	"Nkana Blue": "hea-blue",
+	"Nkana Aqua": "hea-lightblue",
+	"Nkana Yellow": "hea-gold",
+	"Nkana Navy": "hea-navy",
 };
 
 let current_styles = null; // { state name: style } once loaded

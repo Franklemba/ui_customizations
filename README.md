@@ -1,13 +1,14 @@
-## Nkana Water and Sanitation UI
+## HEA UI
 
-Nkana Water Supply and Sanitation Company look-and-feel for the Frappe desk (Nkana ERP)
-and the login page: Nkana logo and blue water palette, a modern side menu, a water-themed
-login page and the "The Drop" splash screen.
+Higher Education Authority (HEA), Zambia look-and-feel for the Frappe desk (HEA ERP)
+and the login page: HEA logo and navy/blue/gold palette (from online.hea.org.zm), a modern
+side menu, an HEA-branded login page and the HEA loader splash screen.
 
 **Start with [GUIDE.md](GUIDE.md)**: the architecture, where to change what, colours,
 rules that prevent bugs, preview tools, and how to release to UAT/Prod.
 
-Installed on the dev site `d-code.localhost` (frappe_docker devcontainer).
+The app's Python package is still `nkana_ui` (it was forked from the Nkana Water UI); renaming it
+would mean reinstalling it on every site.
 
 Built by Innovative Dynamics (Automate E).
 

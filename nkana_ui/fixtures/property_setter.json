@@ -13,7 +13,7 @@
   "property": "options",
   "property_type": "Text",
   "row_name": null,
-  "value": "\nPrimary\nInfo\nSuccess\nWarning\nDanger\nInverse\nYellow\nPurple\nPink\nCyan\nDark Grey\nNkana Blue\nNkana Aqua\nNkana Yellow\nNkana Navy"
+  "value": "\nPrimary\nInfo\nSuccess\nWarning\nDanger\nInverse\nYellow\nPurple\nPink\nCyan\nDark Grey\nHEA Blue\nHEA Light Blue\nHEA Gold\nHEA Navy"
  },
  {
   "default_value": null,
@@ -29,6 +29,6 @@
   "property": "description",
   "property_type": "Small Text",
   "row_name": null,
-  "value": "Colour of this state's pill in lists and forms. Primary = blue, Info = light blue, Success = green, Warning = orange, Danger = red, Inverse = black; plus Yellow, Purple, Pink, Cyan, Dark Grey and the Nkana brand colours."
+  "value": "Colour of this state's pill in lists and forms. Primary = blue, Info = light blue, Success = green, Warning = orange, Danger = red, Inverse = black; plus Yellow, Purple, Pink, Cyan, Dark Grey and the HEA brand colours."
  }
 ]

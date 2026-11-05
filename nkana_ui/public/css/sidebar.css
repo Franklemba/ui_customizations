@@ -96,7 +96,7 @@
   background-color: var(--ui-sidebar-hover-bg) !important;
 }
 
-/* Selected: Nkana sky blue pill with dark text */
+/* Selected: HEA light-blue pill with dark text */
 .desk-sidebar .desk-sidebar-item.selected {
   background-color: var(--ui-sidebar-active-bg) !important;
 }

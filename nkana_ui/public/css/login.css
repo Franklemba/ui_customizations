@@ -1,10 +1,10 @@
-/* login.css – Nkana ERP sign-in page (www/login.html).
- * Two variants: "navy" (navy footer, aqua edge) and "sky" (light-blue footer).
- * The right-hand side is a water scene drawn in CSS + inline SVG over the tap photo
- * (images/login_tap.webp: a 1000px copy of the Pexels original with a transparent left fade).
+/* login.css – HEA ERP sign-in page (www/login.html).
+ * Two variants: "navy" (navy footer, blue edge) and "sky" (light-blue footer).
+ * The right-hand side is the HEA hero drawn in CSS + inline SVG: the HEA navy-to-blue gradient,
+ * a faint HEA logo mark, slow waves and drifting particles (as on the HEA website loader).
  * Everything is scoped under .nk-login so it can't leak into other web pages.
  */
-/* nkana_palette.css is imported by ui_login.bundle.scss, before this file. */
+/* hea_palette.css is imported by ui_login.bundle.scss, before this file. */
 
 @font-face {
   font-family: "Plus Jakarta Sans";
@@ -16,46 +16,46 @@
 
 /* ── Tokens ─────────────────────────────────────────────────────────────── */
 .nk-login {
-  --rl-ink: var(--nk-navy);
+  --rl-ink: var(--hea-navy);
   --rl-ink-soft: #4B5563;
   --rl-placeholder: #6B7280;
   --rl-panel-bg: #FAFCFE;
   --rl-input-bg: #F3F4F6;
   --rl-input-border: #D1D5DB;
-  --rl-link: var(--nk-sky-deep);
-  --rl-icon-bg: var(--nk-sky);
-  --rl-icon-ink: var(--nk-navy);
+  --rl-link: var(--hea-primary);
+  --rl-icon-bg: var(--hea-sky);
+  --rl-icon-ink: var(--hea-navy);
   --rl-error: #B42318;
-  --rl-success: var(--nk-sky-deep);
+  --rl-success: var(--hea-primary);
   --rl-radius: 10px;
   --rl-panel-width: clamp(380px, 36%, 560px);
 }
 
 /* Navy variant (default) */
 .nk-login--navy {
-  --rl-btn: var(--nk-sky-deep);
-  --rl-btn-hover: var(--nk-sky-deeper);
-  --rl-edge: var(--nk-aqua);
-  --rl-headline-accent: var(--nk-sky);
-  --rl-footer-bg: var(--nk-navy);
+  --rl-btn: var(--hea-primary);
+  --rl-btn-hover: var(--hea-primary-dark);
+  --rl-edge: var(--hea-accent);
+  --rl-headline-accent: var(--hea-gold);
+  --rl-footer-bg: var(--hea-navy);
   --rl-footer-ink: #FFFFFF;
-  --rl-footer-stripe: var(--nk-aqua);
+  --rl-footer-stripe: var(--hea-accent);
 }
 
 /* Sky variant: light-blue footer */
 .nk-login--sky {
-  --rl-btn: var(--nk-sky-deep);
-  --rl-btn-hover: var(--nk-sky-deeper);
+  --rl-btn: var(--hea-primary);
+  --rl-btn-hover: var(--hea-primary-dark);
   --rl-edge: transparent;
-  --rl-headline-accent: var(--nk-sky);
-  --rl-footer-bg: var(--nk-sky-40);
-  --rl-footer-ink: var(--nk-navy);
+  --rl-headline-accent: var(--hea-sky);
+  --rl-footer-bg: var(--hea-sky-40);
+  --rl-footer-ink: var(--hea-navy);
   --rl-footer-stripe: transparent;
 }
 
 /* ── Page shell: remove Frappe's web page chrome ────────────────────────── */
 body:has(.nk-login) {
-  background: var(--nk-navy) !important;
+  background: var(--hea-navy) !important;
 }
 
 body:has(.nk-login) .page-content-wrapper,
@@ -80,7 +80,7 @@ body:has(.nk-login) .page_content {
   overflow: hidden;
   font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--rl-ink);
-  background: var(--nk-navy);
+  background: var(--hea-navy);
 }
 
 /* ── Left panel ─────────────────────────────────────────────────────────── */
@@ -110,8 +110,9 @@ body:has(.nk-login) .page_content {
   margin-bottom: 32px;
 }
 
+/* The HEA logo is wide (blocks + three lines of lettering), so it is wider than a round badge */
 .nk-login__badge {
-  width: clamp(96px, 9vw, 124px);
+  width: clamp(200px, 18vw, 260px);
   height: auto;
   margin: 0 auto 18px;
   display: block;
@@ -160,7 +161,7 @@ body:has(.nk-login) .page_content {
 .nk-login__notice {
   padding: 12px 14px;
   border-radius: var(--rl-radius);
-  background: var(--nk-sun-20);
+  background: var(--hea-gold-20);
   color: var(--rl-ink);
 }
 
@@ -285,7 +286,7 @@ body:has(.nk-login) .page_content {
 }
 
 .nk-login .nk-link:hover {
-  color: var(--nk-sky-deeper);
+  color: var(--hea-primary-dark);
 }
 
 /* ── Buttons ────────────────────────────────────────────────────────────── */
@@ -364,7 +365,7 @@ body:has(.nk-login) .page_content {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--rl-ink);
-  background: var(--nk-sun-20);
+  background: var(--hea-gold-20);
 }
 
 .nk-login .login-feedback[data-tone="error"] {
@@ -374,7 +375,7 @@ body:has(.nk-login) .page_content {
 
 .nk-login .login-feedback[data-tone="success"] {
   color: var(--rl-success);
-  background: var(--nk-sky-20);
+  background: var(--hea-sky-20);
 }
 
 /* Help line */
@@ -396,8 +397,8 @@ body:has(.nk-login) .page_content {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--nk-sky-40);
-  color: var(--nk-sky-deep);
+  background: var(--hea-sky-40);
+  color: var(--hea-primary);
 }
 
 .nk-login__help-icon svg {
@@ -405,7 +406,7 @@ body:has(.nk-login) .page_content {
   height: 22px;
 }
 
-/* ── Right: water hero (gradient + animated waves, markup in login.html) ── */
+/* ── Right: HEA hero (gradient + animated waves, markup in login.html) ─── */
 .nk-login__hero {
   grid-area: hero;
   position: relative;
@@ -417,14 +418,14 @@ body:has(.nk-login) .page_content {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(ellipse 60% 55% at 78% 30%, rgba(142, 214, 245, 0.28), transparent 70%),
-    radial-gradient(ellipse 45% 40% at 12% 85%, rgba(34, 184, 230, 0.22), transparent 70%),
-    linear-gradient(160deg, var(--nk-navy) 0%, var(--nk-sky-deeper) 52%, var(--nk-aqua-deep) 100%);
+    radial-gradient(ellipse 60% 55% at 78% 30%, rgba(93, 173, 226, 0.28), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 12% 85%, rgba(46, 134, 193, 0.22), transparent 70%),
+    linear-gradient(150deg, var(--hea-navy) 0%, var(--hea-primary) 45%, #3A5896 78%, #4A74BD 100%);
   color: #FFFFFF;
 }
 
-/* The tap photo (black and white): "luminosity" keeps its light and shade but takes the
-   colour of the blue gradient underneath, so it reads as a Nkana-blue duotone. */
+/* A large, faint HEA logo mark on the right; "luminosity" takes the colour of the blue
+   gradient underneath, so it reads as an HEA-blue watermark. */
 .nk-login__hero::before,
 .nk-login__hero::after {
   content: "";
@@ -435,16 +436,15 @@ body:has(.nk-login) .page_content {
 }
 
 .nk-login__hero::before {
-  /* the image's left half fades to transparent (built into the WebP), so it melts into the gradient */
-  background: url("/assets/nkana_ui/images/login_tap.webp") right -40px top 32% / auto 125% no-repeat;
+  background: url("/assets/nkana_ui/images/hea_mark.png") right -6% top 38% / auto 78% no-repeat;
   mix-blend-mode: luminosity;
-  opacity: 0.85;
+  opacity: 0.22;
 }
 
 /* hero_style = "photo": the photo as it is, filling the panel, nothing animated.
    Only a soft dark shade on the left, so the white text stays readable. */
 .nk-login--hero-photo .nk-login__hero {
-  background: #111 var(--nk-hero-photo) center 30% / cover no-repeat;
+  background: #111 var(--hea-hero-photo) center 30% / cover no-repeat;
 }
 
 .nk-login--hero-photo .nk-login__hero::before {
@@ -458,7 +458,7 @@ body:has(.nk-login) .page_content {
 /* Fade the photo into navy behind the text on the left */
 .nk-login__hero::after {
   background:
-    linear-gradient(90deg, var(--nk-navy) 0%, rgba(11, 31, 63, 0.82) 38%, rgba(11, 31, 63, 0.15) 70%, transparent 100%);
+    linear-gradient(90deg, var(--hea-navy) 0%, rgba(0, 34, 85, 0.82) 38%, rgba(0, 34, 85, 0.15) 70%, transparent 100%);
 }
 
 /* Waves: three layers drift sideways at different speeds. Each path is two wave periods wide
@@ -479,11 +479,11 @@ body:has(.nk-login) .page_content {
   animation: nk-wave-drift linear infinite;
 }
 
-.nk-login__wave--back { fill: rgba(142, 214, 245, 0.16); animation-duration: 22s; }
-.nk-login__wave--mid { fill: rgba(34, 184, 230, 0.24); animation-duration: 15s; animation-direction: reverse; }
-.nk-login__wave--front { fill: rgba(11, 31, 63, 0.45); animation-duration: 10s; }
+.nk-login__wave--back { fill: rgba(93, 173, 226, 0.16); animation-duration: 22s; }
+.nk-login__wave--mid { fill: rgba(46, 134, 193, 0.24); animation-duration: 15s; animation-direction: reverse; }
+.nk-login__wave--front { fill: rgba(0, 34, 85, 0.45); animation-duration: 10s; }
 
-/* Rising bubbles */
+/* Drifting particles (white and gold, as on the HEA loader) */
 .nk-login__bubbles {
   position: absolute;
   inset: 0;
@@ -498,13 +498,17 @@ body:has(.nk-login) .page_content {
   position: absolute;
   bottom: -20px;
   left: var(--x);
-  width: var(--s);
-  height: var(--s);
+  width: calc(var(--s) / 2);
+  height: calc(var(--s) / 2);
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.04) 60%);
+  background: rgba(255, 255, 255, 0.4);
   animation: nk-bubble var(--t) ease-in var(--d) infinite;
   opacity: 0;
+}
+
+.nk-login__bubbles li:nth-child(3n + 1) {
+  background: rgba(240, 165, 0, 0.75);
+  box-shadow: 0 0 6px rgba(240, 165, 0, 0.6);
 }
 
 @keyframes nk-wave-drift { to { transform: translateX(-50%); } }
@@ -539,7 +543,7 @@ body:has(.nk-login) .page_content {
   color: var(--rl-headline-accent);
 }
 
-/* Slogan above the headline: "BIGGER · BETTER · SMARTER" */
+/* Motto above the headline: "REGULATING · ACCREDITING · EMPOWERING" (gold, like the HEA site's eyebrows) */
 .nk-login__kicker {
   display: flex;
   flex-wrap: wrap;
@@ -549,7 +553,7 @@ body:has(.nk-login) .page_content {
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--nk-sky);
+  color: var(--hea-gold);
 }
 
 .nk-login__kicker span + span::before {
@@ -559,11 +563,11 @@ body:has(.nk-login) .page_content {
   height: 6px;
   margin: 0 0.9em;
   border-radius: 50%;
-  background: var(--nk-aqua);
+  background: var(--hea-accent);
   vertical-align: middle;
 }
 
-/* Vision / mission: glass cards with an aqua edge, side by side when there is room */
+/* Vision / mission: glass cards with a gold edge, side by side when there is room */
 .nk-login__statements {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -577,7 +581,7 @@ body:has(.nk-login) .page_content {
   margin: 0;
   padding: 16px 20px 16px 18px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-left: 4px solid var(--nk-aqua);
+  border-left: 4px solid var(--hea-gold);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.08);
   -webkit-backdrop-filter: blur(6px);
@@ -590,7 +594,7 @@ body:has(.nk-login) .page_content {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--nk-sky);
+  color: var(--hea-sky);
 }
 
 .nk-login__statement blockquote {
@@ -658,8 +662,8 @@ body:has(.nk-login) .page_content {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--nk-sky-40);
-  color: var(--nk-sky-deep);
+  background: var(--hea-sky-40);
+  color: var(--hea-primary);
 }
 
 .nk-login__feature-icon svg {
@@ -770,7 +774,7 @@ body:has(.nk-login) .page_content {
   }
 
   .nk-login__badge {
-    width: 84px;
+    width: 180px;
     margin-bottom: 10px;
   }
 
@@ -843,7 +847,7 @@ body:has(.nk-login) .page_content {
 
 @media (min-width: 992px) and (max-height: 680px) {
   .nk-login__badge {
-    width: 64px;
+    width: 150px;
   }
 
   .nk-login__subtitle {
@@ -888,7 +892,7 @@ body:has(.nk-login) .page_content {
   }
 }
 
-/* ── Tablet: stack – short water banner, form, footer ───────────────────── */
+/* ── Tablet: stack – short hero banner, form, footer ───────────────────── */
 @media (max-width: 991.98px) {
   .nk-login {
     height: auto;
@@ -973,7 +977,7 @@ body:has(.nk-login) .page_content {
   }
 
   .nk-login__badge {
-    width: 96px;
+    width: 200px;
   }
 
   .nk-login__footer {

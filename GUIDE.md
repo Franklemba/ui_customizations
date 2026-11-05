@@ -1,13 +1,13 @@
-# Nkana Water and Sanitation UI: maintainer's guide
+# HEA UI: maintainer's guide
 
-How the Nkana ERP look-and-feel is built, where to change things, and the traps to avoid.
+How the HEA ERP look-and-feel is built, where to change things, and the traps to avoid.
 Keep this file up to date when you add a feature.
 
 ---
 
 ## 1. What this app is
 
-`nkana_ui` is a **look-and-feel app** for the Nkana Water ERP site. It has no DocTypes.
+`nkana_ui` is a **look-and-feel app** for the HEA ERP site. It has no DocTypes.
 Its only database change is one customisation shipped as a fixture (extra colour choices for
 Workflow State → Style, §13). It does four things:
 
@@ -48,15 +48,15 @@ apps/nkana_ui/
     ├── fixtures/
     │   └── property_setter.json ← Workflow State → Style: extra colour choices (+ help text)
     ├── templates/includes/
-    │   └── splash_screen.html ← desk loading screen ("The Drop": drop → splash → ripples → Nkana logo), §15
+    │   └── splash_screen.html ← desk loading screen (HEA loader: glass logo circle, motto, gold progress bar), §15
     ├── www/
     │   ├── login.html       ← login page template (settings block at the top)
     │   └── login.py         ← reuses Frappe's login context; sets page title
     └── public/
         ├── css/
-        │   ├── nkana_palette.css   ← Nkana brand colours (shared by login + desk)
+        │   ├── hea_palette.css   ← HEA brand colours (shared by login + desk)
         │   ├── ui_desk.bundle.scss ← DESK entry point (bundled): imports the files below, in order
-        │   ├── variables.css     ←   desk design tokens (--ui-*) + breakpoints + dark mode (= the Nkana Blue theme)
+        │   ├── variables.css     ←   desk design tokens (--ui-*) + breakpoints + dark mode (= the HEA Blue theme)
         │   ├── themes.css        ←   per-user colour themes (re-map the roles) + the picker dialog
         │   ├── base.css          ←   body, buttons, dropdown/autocomplete hover
         │   ├── navbar.css        ←   top bar, search, notifications + other navbar dropdowns
@@ -66,10 +66,10 @@ apps/nkana_ui/
         │   ├── workspace.css     ←   workspace pages: section panels, shortcut pills + icons
         │   ├── form.css          ←   document forms: title accent, status pill, section bars, fields
         │   ├── list.css          ←   lists: header row, wider status column; paging; report tables
-        │   ├── workflow_colours.css ← Nkana colours for workflow state pills
+        │   ├── workflow_colours.css ← HEA colours for workflow state pills
         │   ├── dark_mode.css     ←   dark-mode-only surfaces
         │   ├── splash.css        ←   desk loading screen animation (§15)
-        │   ├── ui_login.bundle.scss ← LOGIN entry point (bundled): nkana_palette + login.css
+        │   ├── ui_login.bundle.scss ← LOGIN entry point (bundled): hea_palette + login.css
         │   └── login.css         ← LOGIN page only (scoped under .nk-login)
         ├── js/
         │   ├── ui_desk.bundle.js ← DESK scripts entry point (bundled)
@@ -78,7 +78,7 @@ apps/nkana_ui/
         │   ├── ui_workspace.js   ← workspace pages: section panels + shortcut icons
         │   └── ui_workflow_colours.js ← workflow state pill colours (new Style choices, fresh styles)
         ├── fonts/           ← Plus Jakarta Sans (self-hosted, OFL licence)
-        └── images/          ← Nkana logo, login photos, Automate E + Innovative Dynamics logos
+        └── images/          ← HEA logo, login photos, Automate E + Innovative Dynamics logos
 ```
 
 ---
@@ -91,12 +91,12 @@ apps/nkana_ui/
 |---|---|
 | Any wording (system name, tagline, slogan, mission, vision, welcome headline, feature names) | `www/login.html`, **settings block at the top** |
 | Navy vs light-blue footer | `login_variant` in the same settings block |
-| Animated water scene vs a still photo | `hero_style` (`"water"` or `"photo"`) and `hero_photo` in the settings block |
+| Animated hero vs a still photo | `hero_style` (`"animated"` or `"photo"`) and `hero_photo` in the settings block |
 | ICT Support / Privacy / Terms links | `ict_support_url`, `privacy_url`, `terms_url` in the settings block |
 | A caption on the photo (place / credit) | `photo_caption` in the settings block (empty = hidden) |
 | The browser-tab title | `www/login.py` (`context["title"]`) |
 | The still photo (`hero_style = "photo"`) | Put it in `public/images/` (≈1400px wide, under ~500 KB) and set `hero_photo` |
-| The tap photo in the water scene | `public/images/login_tap.webp` (left half fades to transparent; it is tinted blue by CSS). Its framing: `.nk-login__hero::before` in `login.css` |
+| The logo watermark in the hero | `public/images/hea_mark.png`, framed by `.nk-login__hero::before` in `login.css` |
 | Sizes, spacing, colours | `public/css/login.css`. Tokens (`--rl-*`) are at the top; sections are labelled |
 | How much the photo is darkened behind the text | the `linear-gradient(...)` in `.nk-login__hero::after` |
 
@@ -110,16 +110,16 @@ Login-page behaviour that comes from **Frappe settings**, not from this app:
 Desk colours are **roles** in `public/css/variables.css`. Change a role there and every place
 that uses it follows:
 
-| Role token | What it colours | Nkana look |
+| Role token | What it colours | HEA look |
 |---|---|---|
-| `--ui-navbar-bg` / `--ui-navbar-ink` | Top bar and its text/icons | Nkana Sky / Nkana Navy |
-| `--ui-sidebar-bg`, `--ui-sidebar-ink` | Side menu | Nkana Navy / white |
-| `--ui-sidebar-active-bg` / `-ink` | Selected menu item's icon tile (and its soft tint) | Nkana Sky / Nkana Navy |
-| `--ui-sidebar-accent` | Marker beside the current page, ring around the menu avatar | Nkana Sun (yellow) |
+| `--ui-navbar-bg` / `--ui-navbar-ink` | Top bar and its text/icons | HEA Sky / HEA Navy |
+| `--ui-sidebar-bg`, `--ui-sidebar-ink` | Side menu | HEA Navy / white |
+| `--ui-sidebar-active-bg` / `-ink` | Selected menu item's icon tile (and its soft tint) | HEA Sky / HEA Navy |
+| `--ui-sidebar-accent` | Marker beside the current page, ring around the menu avatar | HEA Sun (yellow) |
 | `--ui-primary` (+ `-hover`, `--ui-on-primary`) | Primary buttons (Save, Add …), focus, Frappe's accent | Royal blue |
-| `--ui-badge-bg` / `-ink` | Count badges on shortcuts | Nkana Sun / Nkana Navy |
+| `--ui-badge-bg` / `-ink` | Count badges on shortcuts | HEA Sun / HEA Navy |
 | `--ui-highlight` | Chart titles; also the current breadcrumb unless a theme sets `--ui-navbar-highlight` | Aqua deep |
-| `--ui-avatar-ink`, `--ui-card-hover-border` | Initials in the top-bar avatar; shortcut card border on hover | Aqua deep; Nkana Aqua |
+| `--ui-avatar-ink`, `--ui-card-hover-border` | Initials in the top-bar avatar; shortcut card border on hover | Aqua deep; HEA Aqua |
 | `--ui-tint`, `--ui-tint-strong` | Soft blue backgrounds: list row hover, dropdown option hover | Sky 20 % / 40 % |
 | `--ui-filterbar-bg` (+ `-field-bg`, `-field-border`, `-field-ink`, `-placeholder`, `-focus`) | The filter strip above every list, and the fields/buttons on it | Same blue as the top bar (`var(--ui-navbar-bg)`), white fields, royal-blue focus ring (see §10) |
 | `--ui-page-bg`, `--ui-surface`, `--ui-border`, `--ui-text*` | Page, cards, lines, text | Warm off-white, white, stone grey |
@@ -147,28 +147,30 @@ that uses it follows:
 | Number cards, list filter bar, form card, form tabs | `main_section.css` |
 
 The other CSS files use colour tokens only. If you find a hard-coded colour outside
-`variables.css`, `nkana_palette.css` or `login.css`, move it into a token.
+`variables.css`, `hea_palette.css` or `login.css`, move it into a token.
 
 ---
 
 ## 4. Colours
 
-`public/css/nkana_palette.css`, taken from the Nkana logo (`images/nkana_logo.png`):
+`public/css/hea_palette.css`, taken from the HEA website's design tokens (online.hea.org.zm)
+and the HEA logo (`images/hea_logo.png`):
 
 | Name | Variable | Hex | Use |
 |---|---|---|---|
-| Nkana Navy | `--nk-navy` | `#0B1F3F` | text, dark surfaces (side menu, login footer) |
-| Nkana Sky | `--nk-sky` | `#8ED6F5` | top bar, selected menu item (navy text on it, 10:1) |
-| Nkana Aqua | `--nk-aqua` | `#22B8E6` | accent bars, edges, card hover |
-| Nkana Sun | `--nk-sun` | `#F5C400` | count badges (navy text on it), lit windows in the splash |
-| Royal blue | `--nk-sky-deep` | `#1B3FC4` | **buttons and links with white text** (8.2:1) – the logo's ring |
-| Aqua deep | `--nk-aqua-deep` | `#0A6E99` | highlights on white (current breadcrumb, chart titles) |
+| HEA Navy | `--hea-navy` | `#002255` | text, dark surfaces (side menu, login footer) |
+| HEA Sky | `--hea-sky` | `#D6E4F0` | top bar, selected menu item (navy text on it, 11.9:1) |
+| HEA Accent | `--hea-accent` | `#2E86C1` | accent bars, edges, card hover |
+| HEA Gold | `--hea-gold` | `#F0A500` | count badges (navy text on it), motto, splash highlights |
+| HEA Primary | `--hea-primary` | `#003580` | **buttons and links with white text** (11.5:1) |
+| Accent deep | `--hea-accent-deep` | `#0056B3` | highlights on white (current breadcrumb, chart titles) |
 
-80/60/40/20 % tints are there too (`--nk-sky-40` etc.).
+80/60/40/20 % tints are there too (`--hea-sky-40` etc.).
 
-Logos: `images/nkana_logo.png` (login, side menu, splash). Login footer: "[Automate E logo] by
-[Innovative Dynamics logo]" using `images/automatee.png` and `images/innovative_dynamics_light.png`
-(white text, navy footer) or `innovative_dynamics.png` (light-blue footer).
+Logos: `images/hea_logo.png` (full logo, transparent: login and splash) and `images/hea_mark.png`
+(the square blocks only: side menu, login watermark). `hea_logo.jpg` is the original as supplied.
+Login footer: "[Automate E logo] by [Innovative Dynamics logo]" using `images/automatee.png` and
+`images/innovative_dynamics_light.png` (white text, navy footer) or `innovative_dynamics.png` (light-blue footer).
 
 ---
 
@@ -327,16 +329,15 @@ If you change that customisation on dev, re-export it with
 Older versions are all in git history (`git log --oneline`): any of them can be brought back.
 
 ### Login page
-- **Layout:** the card sits on the left (Nkana logo, company name, form, ICT help). The right side
-  is the welcome area: the slogan "Bigger • Better • Smarter", "Welcome to Nkana ERP", a short
-  description, the mission card, and three features (Bigger / Better / Smarter, with water-themed
-  icons: a drop with a rising arrow, a checked drop with a sparkle, a lightbulb with a drop).
+- **Layout:** the card sits on the left (HEA logo, company name, form, ICT help). The right side
+  is the welcome area: the motto "Regulating • Accrediting • Empowering" (gold), "Welcome to HEA ERP",
+  a short description, the vision and mission cards, and three of HEA's core values (Integrity /
+  Reliability / Impartiality, with a shield, a graduation cap and a balance scale).
   A navy footer runs underneath.
-- **Right-side background (2026-10-07):** `hero_style = "water"` (current): a blue gradient with
-  the black-and-white tap photo tinted Nkana blue (`mix-blend-mode: luminosity`), its water
-  pouring into slowly drifting waves, plus rising bubbles. `hero_style = "photo"` shows a plain
-  photo (`hero_photo`) with no animation and only a soft shade behind the text; it was previewed
-  with the tap photo and the user chose the animated version for now.
+- **Right-side background (2026-11-05):** `hero_style = "animated"` (current): the HEA navy-to-blue
+  gradient with a large faint HEA logo mark (`hea_mark.png`, `mix-blend-mode: luminosity`), slowly
+  drifting waves and white/gold particles. `hero_style = "photo"` shows a plain photo (`hero_photo`,
+  none supplied yet) with no animation and only a soft shade behind the text.
 - **Footer:** "[Automate E logo] by [Innovative Dynamics logo]" on the left, Privacy/Terms on the right.
 - **No scrolling on laptops:** measured at 1280×720, 1366×768, 1440×900 and 1920×1080. Spacing
   steps down on short screens. On phones the page scrolls on purpose.
@@ -352,7 +353,7 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 - **Colours by role, not by brand colour** (`variables.css`): navbar, side menu, primary
   buttons, badges, highlight, tints. A future per-user theme only has to swap these roles.
 - **Light-blue (sky) top bar with navy text; navy side menu; royal-blue buttons; sun-yellow count
-  badges; aqua current breadcrumb.** All taken from the Nkana logo (`nkana_palette.css`).
+  badges; aqua current breadcrumb.** All taken from the HEA logo (`hea_palette.css`).
 - **List filter bar uses the same blue as the top bar** (`--ui-filterbar-bg: var(--ui-navbar-bg)`),
   with white fields and a royal-blue focus ring.
   - *History (all 2026-10-01):*
@@ -380,11 +381,11 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 - **Why a script:** Frappe only has a navigation sidebar on *workspace* pages. The design shows
   the navy menu on every page (lists, forms, reports), so `ui_rail.js` builds one menu and shows
   it everywhere.
-- **Look (redesigned 2026-10-07):** a compact logo + "Nkana ERP / Water & Sanitation" lockup at the
+- **Look (redesigned 2026-10-07):** a compact logo + "HEA ERP / Higher Education Authority" lockup at the
   top, a "Workspaces" label, icons in soft rounded tiles, and the current page shown with a soft
-  tint, a filled icon tile and a **sun-yellow marker** on the rail edge (the yellow balances the
+  tint, a filled icon tile and a **gold marker** on the rail edge (the yellow balances the
   blues). The footer is a user card (avatar with a yellow ring, name, "My profile") with a compact
-  collapse button. A soft gradient and faint water-wave lines sit behind it. Before this it had a
+  collapse button. A soft gradient and a faint pattern of HEA logo squares sit behind it. Before this it had a
   big centred badge and a solid light-blue block for the current page.
 - **What it shows:** the user's workspaces from `frappe.boot.allowed_workspaces`, the same list,
   order, icons and **permissions** as Frappe's own sidebar. Hidden workspaces are skipped.
@@ -477,7 +478,7 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 - **Kept (user approved):**
   - **Paging** (20 / 100 / 500, Load more): the selected size in soft blue.
   - **Report tables** (Report View and query reports such as General Ledger) use Frappe DataTable,
-    whose colours come from `--dt-*` variables. They're mapped to the Nkana roles: soft blue header,
+    whose colours come from `--dt-*` variables. They're mapped to the HEA roles: soft blue header,
     the border colour, blue row hover and selection, and a blue border on the cell being edited.
 - **Tried and reverted the same day (user's choice):** putting lists in a white rounded card,
   restyling the list header row, and rounded/bold status pills (first with a dot, then without).
@@ -512,8 +513,8 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
   keep Frappe's weight. Undo: delete that rule in `list.css`.
 
 ### Colour themes (2026-10-02)
-- **Currently switched OFF:** everyone gets the designed Nkana Blue look, with the themes kept for
-  later. One switch, `UI_THEMES_ENABLED = False` in `api.py`: the server sends Nkana Blue to everyone, hides the menu
+- **Currently switched OFF:** everyone gets the designed HEA Blue look, with the themes kept for
+  later. One switch, `UI_THEMES_ENABLED = False` in `api.py`: the server sends HEA Blue to everyone, hides the menu
   item and refuses to save a theme. Any saved choices stay in the database and come back when
   switched on. See §14 to reactivate.
 - **Each user picks; nobody else is affected.** The choice is stored as a **user default**
@@ -526,7 +527,7 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 - **Themes only re-map role tokens.** No component CSS knows about themes, so a new desk style
   automatically works in every theme as long as it uses `--ui-*` tokens (rule: no hard-coded colours).
   Two hard-coded colours were turned into tokens for this (`--ui-avatar-ink`, `--ui-card-hover-border`).
-- **Dark top bars** (Nkana Navy, Deep Forest): the current breadcrumb uses
+- **Dark top bars** (HEA Navy, Deep Forest): the current breadcrumb uses
   `--ui-navbar-highlight` (a lighter highlight) because the normal one is unreadable on a dark bar,
   and the filter bar's focus ring is yellow.
 - **Minimal Slate** has a white top bar, so its filter bar is pale (not white) with outlined
@@ -534,7 +535,7 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 - **Where the picker lives:** the avatar menu, right under "Toggle Theme". Not in the side menu,
   to keep the rail for navigation.
 - **Small flash on a full page reload:** the theme is applied by the desk script, which runs
-  after the CSS, so for a split second a reload can show Nkana Blue. Moving between pages in the
+  after the CSS, so for a split second a reload can show HEA Blue. Moving between pages in the
   desk never reloads, so this is rare. Removing it would mean overriding Frappe's `app.html`.
 - **Theme set is a first proposal.** The user asked to "start" the picker; the 6 themes are
   easy to rename, recolour or drop (§14).
@@ -558,11 +559,10 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
   properties get in: `stroke`, `stroke-width`, and CSS variables (`--icon-stroke`, `--green-700`).
 
 ### Splash screen (2026-10-02)
-- **Nkana (2026-10-07): "The Drop".** One glowing drop falls onto dark water; a jet and droplets
-  splash up, rings ripple across the surface, the water swells with drifting waves, soft light rays
-  and rising bubbles, and the Nkana logo rises out of it like a bubble while a ring pulses out
-  (echoing the ripples). Tagline "Enterprise Resource Planning". Water only, on purpose: the user
-  wanted a concept unique to Nkana. 2.4 s, logo-only on later loads.
+- **HEA (2026-11-05):** the loader from the HEA website: navy-to-blue gradient, the HEA logo in a
+  glass circle with an orbiting dashed ring (gold dot, book, medal), "Higher Education Authority /
+  Zambia / Regulating · Accrediting · Empowering", pulsing dots, a gold progress bar and drifting
+  particles. 2.4 s, logo-only on later loads. (Replaced HEA's "The Drop".)
 - **Trade-off:** it holds the screen for 5.2 s even when the desk is ready sooner (about 1 s on dev).
   So it plays **once per sign-in** (once per browser tab until 2026-10-06; the user chose sign-in,
   see §15). Later desk loads show the logo only (0.7 s), and so do users with "reduce motion"
@@ -573,7 +573,7 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 ### Open items
 - Real links for ICT Support, Privacy Notice and Terms of Use (login settings block).
 - The company vision statement (`vision`) and the ICT support email (`ict_support_url`) for the login page.
-- Final login photos, and a high-resolution or vector Nkana logo.
+- An HEA photo for the login page (`hero_photo`), and a high-resolution or vector HEA logo (the supplied one is 258 × 101 px).
 - Decide whether to keep "Login with email link".
 - Not theme bugs, noticed on the way: some notifications are sent 2–3 times.
 
@@ -583,6 +583,7 @@ Older versions are all in git history (`git log --oneline`): any of them can be 
 
 | Date | Change |
 |---|---|
+| 2026-11-05 | **Rebranded for the Higher Education Authority (HEA), Zambia**: HEA palette from online.hea.org.zm (`hea_palette.css`, `--hea-*`), HEA logo + square mark, HEA-style splash (glass logo circle, gold progress bar), login wording/vision/mission/core values, education icons, logo-mark watermark instead of the tap photo; workflow styles "HEA Blue / Light Blue / Gold / Navy" (old Nkana names still work). Layout unchanged |
 | 2026-10-07 | Login: still-photo option (`hero_style = "photo"`, `hero_photo`) next to the animated water scene; the water scene stays the default (user's choice) |
 | 2026-10-07 | Login: tap photo in the water scene, tinted Nkana blue, left edge faded (`login_tap.webp`) |
 | 2026-10-07 | Login: features are now Bigger / Better / Smarter with water-themed icons; footer "[Automate E logo] by [Innovative Dynamics logo]" |
@@ -723,7 +724,7 @@ States that already have a style keep it. Nothing changes until you pick somethi
 |---|---|---|
 | Primary / Info / Success / Warning / Danger / Inverse | blue / light blue / green / orange / red / black | Frappe |
 | Yellow / Purple / Pink / Cyan / Dark Grey | Frappe's built-in pill colours of those names | added by this app |
-| Nkana Blue / Nkana Aqua / Nkana Yellow / Nkana Navy | Nkana brand colours (light + dark mode) | added by this app |
+| HEA Blue / HEA Light Blue / HEA Gold / HEA Navy | HEA brand colours (the old "HEA …" names still map to them) (light + dark mode) | added by this app |
 | (empty) | grey | Frappe default |
 
 **How it works:**
@@ -737,15 +738,15 @@ States that already have a style keep it. Nothing changes until you pick somethi
   current styles once per page load from `nkana_ui.api.workflow_state_styles` (state
   names and colours only, so any logged-in user may read it) and re-draws the list/form on
   screen. Until that answer arrives, Frappe's cached style is used.
-- **Nkana colours:** defined in `public/css/workflow_colours.css` as `--bg-nk-*` /
-  `--text-on-nk-*`, the same pattern as Frappe's own pill colours.
+- **HEA colours:** defined in `public/css/workflow_colours.css` as `--bg-hea-*` /
+  `--text-on-hea-*`, the same pattern as Frappe's own pill colours.
 
 **Adding another colour choice:**
 1. Add it to the Style options (Customize Form → Workflow State → `style` → Options, or edit the
    Property Setter).
 2. Add a line to `STYLE_COLOURS` in `ui_workflow_colours.js`, using a Frappe pill colour (`green`,
    `cyan`, `blue`, `orange`, `yellow`, `gray`, `red`, `pink`, `darkgrey`, `purple`, `light-blue`)
-   or a new `nk-*` class defined in `workflow_colours.css`.
+   or a new `hea-*` class defined in `workflow_colours.css`.
 3. `bench build --app nkana_ui`, then re-export the fixture.
 
 **Tested 2026-10-01:** "CEO Approved - Pending Supervisor Approval" was given a brand colour. The
@@ -755,7 +756,7 @@ Travel Request list showed the new pill colour right away. The state was then se
 
 ## 14. Colour themes
 
-> **Status: switched OFF.** Everyone sees Nkana Blue and there is no menu item.
+> **Status: switched OFF.** Everyone sees HEA Blue and there is no menu item.
 > **To reactivate:** set `UI_THEMES_ENABLED = True` in `api.py`, let the web workers reload
 > (dev reloads by itself; production: restart the bench processes), then
 > `bench --site <site> clear-cache` so cached boot data picks it up. No build is needed.
@@ -763,7 +764,7 @@ Travel Request list showed the new pill colour right away. The state was then se
 **For users:** avatar (top right) → **Colour Theme** → click a card. It changes at once and is
 remembered for that user on every device. Light/Dark is still **Toggle Theme**.
 
-**The themes:** Nkana Blue (`nkana`, default), Nkana Aqua (`copper`), Nkana Navy (`charcoal`),
+**The themes:** HEA Blue (`hea`, default), HEA Light Blue (`copper`), HEA Navy (`charcoal`),
 Deep Forest (`forest`), Ocean Blue (`ocean`), Minimal Slate (`slate`). (The ids `copper` and
 `charcoal` are kept so saved user choices still work; only the labels changed.)
 
@@ -778,9 +779,9 @@ Deep Forest (`forest`), Ocean Blue (`ocean`), Minimal Slate (`slate`). (The ids 
 **Add a theme:** (1) a block in `themes.css` (copy one, keep all three selectors), (2) an entry in
 `THEMES` in `ui_themes.js`, (3) its name in `UI_THEMES` in `api.py`, then
 `bench build --app nkana_ui` (the .py change needs the web workers to reload).
-**Remove a theme:** delete it from all three; users who had it fall back to Nkana Blue.
+**Remove a theme:** delete it from all three; users who had it fall back to HEA Blue.
 **Change the default:** `DEFAULT_THEME` in `ui_themes.js` and `DEFAULT_UI_THEME` in `api.py`, and
-move that theme's values into `variables.css` (the page's base values are Nkana Blue).
+move that theme's values into `variables.css` (the page's base values are HEA Blue).
 
 **Check a change:** `design/preview/themes_shot.py` (needs `.sid`) screenshots home + a list in
 every theme, Light and Dark, plus the picker. It switches themes in the browser only and saves nothing.
@@ -799,8 +800,8 @@ loader checks later-installed apps first, so our copy wins. Nothing in Frappe is
 `public/css/splash.css` (all the animation, in `ui_desk.bundle.css`, which loads in `<head>`, so
 the scene is styled from the first paint). After a CSS change: `bench build --app nkana_ui`.
 
-**Timeline:** the drop falls, splashes and ripples, the water swells, then the logo rises with a
-pulsing ring; the full version takes 2.4 s (it was 5.2 s until 2026-10-06; it was cut because the
+**Timeline:** the glass circle with the logo pops in, the text rises in line by line, then the dots
+and the gold progress bar run; the full version takes 2.4 s (it was 5.2 s until 2026-10-06; it was cut because the
 desk itself is ready in about 1.2 s). To change a moment, edit its `animation-delay` in `splash.css`.
 
 **How it hides:** Frappe removes `.splash` when the desk is built. The template keeps an empty
@@ -822,12 +823,12 @@ shows the logo only until the next sign-in. To see the full version without sign
 - Undo (back to once per tab): in the template script use `sessionStorage` instead of `localStorage`,
   and remove the `removeItem` line from `www/login.html`.
 
-**Logo:** `images/nkana_logo.png`, set directly in the template.
+**Logo:** `images/hea_logo.png`, set directly in the template.
 
 **Gotchas:**
 - Keep every moving part on CSS animations (one clock). An SMIL animation runs on the SVG's own
   clock and drifts out of sync.
-- It's the same water scene in Light and Dark mode, on purpose.
+- It's the same scene in Light and Dark mode, on purpose.
 - **The login page includes this template too.** Frappe's `login.js` puts it inside a JS string
   (`document.body.innerHTML = `…``) to show it right after sign-in, and that string sits inside the
   login page's `<script>`. A literal `</script>` in our template ends that block early: the rest of

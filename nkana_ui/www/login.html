@@ -2,20 +2,20 @@
 
 {# ── Page settings: edit the wording, links and colour of the login page here ── #}
 {% set system_name = "ERP" %}
-{% set system_tagline = "Nkana Water Supply and Sanitation Company" %}
+{% set system_tagline = "Higher Education Authority" %}
 {% set subtitle = "Access your requests, records and approvals." %}
 {% set headline = "Welcome to" %}
-{% set headline_accent = "Nkana ERP" %}
-{% set lead = "Nkana Water's ERP: one secure place to manage your work, from requests to approvals."
+{% set headline_accent = "HEA ERP" %}
+{% set lead = "The Higher Education Authority's ERP: one secure place to manage your work, from requests to approvals."
 %}
-{% set features = ["Bigger", "Better", "Smarter"] %}
-{% set slogan = ["Bigger", "Better", "Smarter"] %} {# company slogan, shown above the headline. Empty list = hidden #}
-{% set mission = "To provide quality water and sanitation services innovatively and sustainably on the Copperbelt, Zambia." %}
-{% set vision = "" %} {# the company vision statement. Empty = its card is hidden #}
-{% set photo_caption = "" %} {# small caption bottom-right of the water scene. Empty = hidden #}
-{% set login_variant = "navy" %} {# "navy" (navy footer, aqua edge) or "sky" (light-blue footer) #}
-{% set hero_style = "water" %} {# "photo" = the still photo below, no animation; "water" = blue gradient, tinted photo, animated waves #}
-{% set hero_photo = "login_photo.jpg" %} {# file in public/images, used when hero_style = "photo" #}
+{% set features = ["Integrity", "Reliability", "Impartiality"] %} {# three of HEA's core values #}
+{% set slogan = ["Regulating", "Accrediting", "Empowering"] %} {# HEA motto, shown above the headline. Empty list = hidden #}
+{% set mission = "To develop and foster an innovative quality assurance system in higher education institutions for a knowledge-based society." %}
+{% set vision = "An innovative and transformative quality assurance institution." %} {# HEA vision statement. Empty = its card is hidden #}
+{% set photo_caption = "" %} {# small caption bottom-right of the hero. Empty = hidden #}
+{% set login_variant = "navy" %} {# "navy" (navy footer, blue edge) or "sky" (light-blue footer) #}
+{% set hero_style = "animated" %} {# "photo" = the still photo below, no animation; "animated" = HEA blue gradient, logo watermark, animated waves and particles #}
+{% set hero_photo = "" %} {# file in public/images (e.g. an HEA building photo), used when hero_style = "photo" #}
 {% set ict_support_url = "#" %} {# e.g. "mailto:ict@your-domain" – the "Contact ICT Support" link #}
 {% set privacy_url = "#" %}
 {% set terms_url = "#" %}
@@ -104,8 +104,8 @@
 	<div class="nk-login__panel">
 		<div class="nk-login__panel-inner">
 			<div class="nk-login__brand">
-				<img class="nk-login__badge" src="{{ img }}nkana_logo.png" width="180" height="160"
-					alt="{{ _('Nkana Water Supply and Sanitation Company') }}">
+				<img class="nk-login__badge" src="{{ img }}hea_logo.png" width="250" height="88"
+					alt="{{ _('Higher Education Authority') }}">
 				<p class="nk-login__tagline">{{ _(system_tagline) }}</p>
 				<!-- <h1 class="nk-login__title">{{ _(system_name) }}</h1> -->
 				<p class="nk-login__subtitle">{{ _(subtitle) }}</p>
@@ -216,9 +216,9 @@
 		</div>
 	</div>
 
-	<!-- Right: water scene + welcome -->
-	<div class="nk-login__hero"{% if hero_style == "photo" %} style="--nk-hero-photo: url('{{ img }}{{ hero_photo }}')"{% endif %}>
-		{% if hero_style == "water" %}
+	<!-- Right: HEA hero + welcome -->
+	<div class="nk-login__hero"{% if hero_style == "photo" %} style="--hea-hero-photo: url('{{ img }}{{ hero_photo }}')"{% endif %}>
+		{% if hero_style == "animated" %}
 		<ul class="nk-login__bubbles" aria-hidden="true">
 			<li style="--x:8%;--s:10px;--t:9s;--d:0s"></li>
 			<li style="--x:22%;--s:6px;--t:7s;--d:2.5s"></li>
@@ -265,10 +265,9 @@
 					<span class="nk-login__feature-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 							stroke-linecap="round" stroke-linejoin="round">
-							{# Bigger: a drop with a rising arrow (growth) #}
-							<path d="M9 5s-6 6.4-6 10.4a6 6 0 0 0 12 0C15 11.4 9 5 9 5z" />
-							<path d="M19.5 20V4" />
-							<path d="m16 7.5 3.5-3.5L23 7.5" />
+							{# Integrity: a shield with a tick #}
+							<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+							<path d="m9 12 2 2 4-4" />
 						</svg>
 					</span>
 					<span class="nk-login__feature-label">{{ _(features[0]) }}</span>
@@ -277,10 +276,10 @@
 					<span class="nk-login__feature-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 							stroke-linecap="round" stroke-linejoin="round">
-							{# Better: a quality-checked drop with a sparkle #}
-							<path d="M11 3s-6.5 7-6.5 11.5a6.5 6.5 0 0 0 13 0C17.5 10 11 3 11 3z" />
-							<path d="m8 14.5 2 2 4-4" />
-							<path d="M19.5 2v4M17.5 4h4" />
+							{# Reliability: a graduation cap #}
+							<path d="M22 10 12 5 2 10l10 5 10-5z" />
+							<path d="M6 12v5c3 3 9 3 12 0v-5" />
+							<path d="M22 10v6" />
 						</svg>
 					</span>
 					<span class="nk-login__feature-label">{{ _(features[1]) }}</span>
@@ -289,10 +288,10 @@
 					<span class="nk-login__feature-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 							stroke-linecap="round" stroke-linejoin="round">
-							{# Smarter: a lightbulb with a drop for its spark #}
-							<path d="M12 2.5a6.5 6.5 0 0 0-4 11.6c.7.6 1 1.4 1 2.4h6c0-1 .3-1.8 1-2.4a6.5 6.5 0 0 0-4-11.6z" />
-							<path d="M9.5 19.5h5M10.5 22h3" />
-							<path d="M12 6.5s-2.3 2.6-2.3 4.3a2.3 2.3 0 0 0 4.6 0c0-1.7-2.3-4.3-2.3-4.3z" />
+							{# Impartiality: a balance scale #}
+							<path d="M12 3v18M7 21h10M5 7h14" />
+							<path d="m5 7-3 6a3 3 0 0 0 6 0z" />
+							<path d="m19 7-3 6a3 3 0 0 0 6 0z" />
 						</svg>
 					</span>
 					<span class="nk-login__feature-label">{{ _(features[2]) }}</span>

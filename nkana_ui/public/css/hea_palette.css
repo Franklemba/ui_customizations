@@ -1,0 +1,41 @@
+/* hea_palette.css – Higher Education Authority (HEA), Zambia brand colours.
+ *
+ * Taken from the HEA website (online.hea.org.zm) design tokens and the HEA logo
+ * (images/hea_logo.png): the HEA navy, the logo's blues, and the gold accent the site
+ * uses for highlights (ticker label, slider dot, loader bar).
+ *
+ * Raw palette only. Pages and themes map these onto their own tokens.
+ * The "deep" shades are darker versions used where white text sits on the colour
+ * (contrast with #FFF in brackets; readable text needs 4.5:1).
+ */
+:root {
+  /* Primaries */
+  --hea-navy: #002255;   /* --colour-primary-dark on the site: text, dark surfaces (side menu, login footer) */
+  --hea-sky: #D6E4F0;    /* --colour-surface-blue: top bar, selected menu item (navy text on it) */
+  --hea-accent: #2E86C1; /* --colour-accent-blue: accent bars, highlights */
+  --hea-gold: #F0A500;   /* --colour-gold: count badges (navy text on it) */
+
+  /* Tints (80 / 60 / 40 / 20 % on white; sky steps towards the site's off-whites) */
+  --hea-navy-80: #334E77;
+  --hea-navy-60: #667A99;
+  --hea-navy-40: #99A7BB;
+  --hea-navy-20: #CCD3DD;
+  --hea-accent-80: #589ECD;
+  --hea-accent-60: #82B6DA;
+  --hea-accent-40: #ABCFE6;
+  --hea-accent-20: #D5E7F3;
+  --hea-sky-80: #DEE9F3;
+  --hea-sky-60: #E3ECF5;
+  --hea-sky-40: #EAF0F6;
+  --hea-sky-20: #F4F7FB;
+  --hea-gold-80: #F3B733;
+  --hea-gold-60: #F6C966;
+  --hea-gold-40: #F9DB99;
+  --hea-gold-20: #FCEDCC;
+
+  /* Deep shades for white text */
+  --hea-primary: #003580;        /* 11.5:1 – HEA primary navy: primary buttons, links */
+  --hea-primary-dark: #002B6B;   /* 13.5:1 – hover */
+  --hea-accent-deep: #0056B3;    /* 7.0:1 – the site's secondary blue */
+  --hea-accent-deeper: #004494;  /* 9.3:1 – hover */
+}
